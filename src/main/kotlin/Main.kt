@@ -1,15 +1,19 @@
 import creational.abstractFactory
+import creational.builder
 import creational.factoryMethod
 
 fun main() {
     println("Creational Design Patterns:")
     printWrapperAndRun(::factoryMethod)
     printWrapperAndRun(::abstractFactory)
+    printWrapperAndRun(::builder)
 }
 
 fun printWrapperAndRun(method: () -> Unit) {
     val delimiter = "**********"
-    println("\t- ${method.toString().split(' ')[1]}:")
+    val methodName = method.toString().split(' ')[1]
+
+    println("\t- $methodName:")
     println(delimiter)
     method()
     println("$delimiter\n")
