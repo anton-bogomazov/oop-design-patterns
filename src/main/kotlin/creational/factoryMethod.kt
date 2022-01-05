@@ -8,22 +8,21 @@ enum class ProductType {
     COOKIES, CHEESE
 }
 
-abstract class Product(productType: ProductType) {
+abstract class Product(private val productType: ProductType) {
     private val id = idCounter++
 
-    init {
-        println("Product with id=$id of type $productType was created.")
-    }
-
+    override fun toString() = "Product with id=$id of type $productType was created."
 }
 
-abstract class ProductCreator(productType: ProductType) {
+abstract class ProductCreator {
 
-    init {
-        println("${productType.toString().lowercase()}Creator was started.")
+    abstract fun makeProduct(): Product
+
+    fun getProduct(): Product {
+        val product = makeProduct()
+        println(product.toString())
+        return product
     }
-
-    abstract fun create(): Product
 }
 
 // concrete products
@@ -34,21 +33,21 @@ class Cheese : Product(ProductType.CHEESE)
 
 // concrete creators
 
-class CookiesCreator : ProductCreator(ProductType.COOKIES) {
-    override fun create(): Cookies = Cookies()
+class CookiesCreator : ProductCreator() {
+    override fun makeProduct(): Cookies = Cookies()
 }
 
-class CheeseCreator : ProductCreator(ProductType.CHEESE) {
-    override fun create(): Cheese = Cheese()
+class CheeseCreator : ProductCreator() {
+    override fun makeProduct(): Cheese = Cheese()
 }
 
 fun factoryMethod() {
     val cookiesCreator = CookiesCreator()
     val cheeseCreator = CheeseCreator()
 
-    cookiesCreator.create()
-    cookiesCreator.create()
-    cheeseCreator.create()
-    cheeseCreator.create()
-    cookiesCreator.create()
+    cookiesCreator.getProduct()
+    cookiesCreator.getProduct()
+    cheeseCreator.getProduct()
+    cheeseCreator.getProduct()
+    cookiesCreator.getProduct()
 }
