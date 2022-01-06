@@ -8,4 +8,5 @@ fun main() {
     printWrapperAndRun(::singleton)
 
     println("Structural Design Patterns:")
+    printWrapperAndRun(::adapter)
 }

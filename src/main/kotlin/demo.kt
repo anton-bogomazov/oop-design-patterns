@@ -1,5 +1,8 @@
 import creational.*
 import creational.singleton.ApplicationContext
+import structural.FieldCreatorAdapter
+import structural.LegacyCreator
+import structural.ModernCreator
 
 fun singleton() {
     val instance = ApplicationContext.getInstance()
@@ -36,4 +39,13 @@ fun prototype() {
     println("Clone is $clone")
     val modifiedConfig = clone.setCreateDockerImage(isEnabled = false)
     println("Modified clone is $modifiedConfig")
+}
+
+fun adapter() {
+    val legacyCreator = LegacyCreator()
+    val adapterToModern = FieldCreatorAdapter(ModernCreator())
+    val data = "Hello!"
+
+    println("Created with legacy creator: ${legacyCreator.createField(data)}")
+    println("Created with modern creator: ${adapterToModern.createField(data)}")
 }
