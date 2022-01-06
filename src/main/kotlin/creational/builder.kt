@@ -90,10 +90,3 @@ class PizzaDirector {
     }
 
 }
-
-fun builder() {
-    val director = PizzaDirector()
-
-    println(director.cookPizza(PizzaType.PEPPERONI, 35))
-    println(director.cookPizza(PizzaType.MUSHROOM, 15))
-}

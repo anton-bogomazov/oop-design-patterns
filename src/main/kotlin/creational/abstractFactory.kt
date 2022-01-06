@@ -54,5 +54,3 @@ class Chest {
     }
 
 }
-
-fun abstractFactory() = Chest().getTreasure()

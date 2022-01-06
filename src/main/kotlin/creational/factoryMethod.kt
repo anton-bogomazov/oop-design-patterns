@@ -40,14 +40,3 @@ class CookiesCreator : ProductCreator() {
 class CheeseCreator : ProductCreator() {
     override fun makeProduct(): Cheese = Cheese()
 }
-
-fun factoryMethod() {
-    val cookiesCreator = CookiesCreator()
-    val cheeseCreator = CheeseCreator()
-
-    cookiesCreator.getProduct()
-    cookiesCreator.getProduct()
-    cheeseCreator.getProduct()
-    cheeseCreator.getProduct()
-    cookiesCreator.getProduct()
-}

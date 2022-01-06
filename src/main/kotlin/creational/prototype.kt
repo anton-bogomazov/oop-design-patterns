@@ -61,13 +61,3 @@ class Configuration(
     override fun toString() = "Configuration(\n\ttype = ${this.type},\n\trunTests = ${this.runTests},\n\trunAfterBuild = ${this.runAfterBuild},\n" +
             "\tcreateDockerImage = ${this.createDockerImage},\n\taddEnvVariables = ${this.addEnvVariables})"
 }
-
-fun prototype() {
-    val prototype = ConfigRegistry().getPrototype(ConfigType.RUN_WITH_DOCKER)
-
-    println("Original is $prototype")
-    val clone = prototype.clone()
-    println("Clone is $clone")
-    val modifiedConfig = clone.setCreateDockerImage(isEnabled = false)
-    println("Modified clone is $modifiedConfig")
-}
