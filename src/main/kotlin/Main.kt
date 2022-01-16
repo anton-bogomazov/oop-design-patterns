@@ -9,4 +9,6 @@ fun main() {
 
     println("Structural Design Patterns:")
     printWrapperAndRun(::adapter)
+    printWrapperAndRun(::bridge)
+    printWrapperAndRun(::composite)
 }

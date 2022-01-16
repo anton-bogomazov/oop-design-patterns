@@ -1,8 +1,6 @@
 import creational.*
 import creational.singleton.ApplicationContext
-import structural.FieldCreatorAdapter
-import structural.LegacyCreator
-import structural.ModernCreator
+import structural.*
 
 fun singleton() {
     val instance = ApplicationContext.getInstance()
@@ -48,4 +46,25 @@ fun adapter() {
 
     println("Created with legacy creator: ${legacyCreator.createField(data)}")
     println("Created with modern creator: ${adapterToModern.createField(data)}")
+}
+
+fun bridge() {
+    val admin = DatabaseAdmin(Neo4jDatabase())
+
+    admin.runCommand("SELECT * FROM table", 14)
+}
+
+fun composite() {
+    val johnsonFamily = Family()
+        .addChild(Citizen("John Johnson",46))
+        .addChild(Citizen("Mary Johnson",23))
+    val lawsonFamily = Family()
+        .addChild(Citizen("Gilbert Lawson",24))
+        .addChild(Citizen("Kara Lawson",17))
+        .addChild(Citizen("Cory Lawson",2))
+    val atlantaRegistry = CityCitizenRegistry()
+        .addChild(johnsonFamily)
+        .addChild(lawsonFamily)
+
+    println(atlantaRegistry.getChildrenList())
 }
