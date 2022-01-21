@@ -1,8 +1,5 @@
 package structural
 
-import javax.swing.tree.TreeNode
-
-
 interface AbstractRegistryComponent
 
 abstract class RegistryComponent : AbstractRegistryComponent {

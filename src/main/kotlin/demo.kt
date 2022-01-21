@@ -68,3 +68,11 @@ fun composite() {
 
     println(atlantaRegistry.getChildrenList())
 }
+
+fun decorator() {
+    val source = FileDataSource("program.js")
+
+    val baseDecorator = DataSourceDecorator(source)
+    baseDecorator.write("beep-boop-js-code")
+    InterpreterDecorator(source).runCode()
+}

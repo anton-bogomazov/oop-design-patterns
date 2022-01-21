@@ -11,4 +11,5 @@ fun main() {
     printWrapperAndRun(::adapter)
     printWrapperAndRun(::bridge)
     printWrapperAndRun(::composite)
+    printWrapperAndRun(::decorator)
 }
