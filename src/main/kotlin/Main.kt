@@ -12,4 +12,8 @@ fun main() {
     printWrapperAndRun(::bridge)
     printWrapperAndRun(::composite)
     printWrapperAndRun(::decorator)
+    printWrapperAndRun(::flyweight)
+    printWrapperAndRun(::proxy)
+
+    println("Behavioral Design Patterns:")
 }

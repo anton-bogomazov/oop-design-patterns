@@ -76,3 +76,17 @@ fun decorator() {
     baseDecorator.write("beep-boop-js-code")
     InterpreterDecorator(source).runCode()
 }
+
+fun flyweight() {
+    val commonGrass = CommonGrass("/perfect_grass.img")
+
+    for (i in 0..10) {
+        Grass(commonGrass).draw()
+    }
+}
+
+fun proxy() {
+    val loggingProxy = TargetServiceLoggingProxy(TargetServiceImplementation())
+
+    loggingProxy.doUsefulThing()
+}
