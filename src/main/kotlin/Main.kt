@@ -16,4 +16,5 @@ fun main() {
     printWrapperAndRun(::proxy)
 
     println("Behavioral Design Patterns:")
+    printWrapperAndRun(::chainOfResponsibility)
 }

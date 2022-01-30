@@ -1,6 +1,8 @@
+import behavioral.*
 import creational.*
 import creational.singleton.ApplicationContext
 import structural.*
+import java.lang.IllegalStateException
 
 fun singleton() {
     val instance = ApplicationContext.getInstance()
@@ -89,4 +91,17 @@ fun proxy() {
     val loggingProxy = TargetServiceLoggingProxy(TargetServiceImplementation())
 
     loggingProxy.doUsefulThing()
+}
+
+fun chainOfResponsibility() {
+    val filterChain = BaseHandler.build(AuthFilter(), BodyFilter(), RequestTypeFilter())
+    val request = Request("user", "pass", "POST", "{JSON}")
+    filterChain.run(request)
+    val attack = Request("user", "pass", "POST", "{dangerous code}")
+    try {
+        filterChain.run(attack)
+    } catch (e: IllegalStateException) {
+        println(e.message)
+        println("Attack was repelled!")
+    }
 }
