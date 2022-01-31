@@ -1,4 +1,5 @@
 import behavioral.*
+import behavioral.Database
 import creational.*
 import creational.singleton.ApplicationContext
 import structural.*
@@ -104,4 +105,29 @@ fun chainOfResponsibility() {
         println(e.message)
         println("Attack was repelled!")
     }
+}
+
+fun command() {
+    val db = Database()
+
+    println(db.select.execute("select all things that i need"))
+    println(db.update.execute("bad command"))
+    println(db.update.execute("good command"))
+}
+
+fun iterator() {
+    val list = IntegerList()
+    list.add(1).add(2).add(3).add(4).add(5).add(6)
+
+    val iter = list.createIterator()
+    val reverseIter = list.createReverseIterator()
+
+    while (iter.hasNext()) {
+        print(iter.next())
+    }
+    println()
+    while (reverseIter.hasNext()) {
+        print(reverseIter.next())
+    }
+    println()
 }

@@ -1,4 +1,3 @@
-
 fun main() {
     println("Creational Design Patterns:")
     printWrapperAndRun(::factoryMethod)
@@ -17,4 +16,6 @@ fun main() {
 
     println("Behavioral Design Patterns:")
     printWrapperAndRun(::chainOfResponsibility)
+    printWrapperAndRun(::command)
+    printWrapperAndRun(::iterator)
 }
