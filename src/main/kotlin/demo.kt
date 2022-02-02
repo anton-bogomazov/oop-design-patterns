@@ -151,3 +151,48 @@ fun memento() {
     editor.undo()
     editor.printText()
 }
+
+fun observer() {
+    val event = "{\"data\": 123}"
+    val publisher = EventPublisher()
+
+    publisher.subscribe(EventListener())
+    publisher.subscribe(EventListener())
+    publisher.subscribe(EventListener())
+
+    publisher.send(event)
+}
+
+fun state() {
+    val article = Article()
+    article.like()
+    article.edit("Hello :)")
+    article.publish()
+    article.edit("some text")
+    article.like()
+}
+
+fun strategy() {
+    println(Navigator(PedestrianRouteStrategy()).calculateRoute(1, 2))
+}
+
+fun templateMethod() {
+    PdfFileProcessor().process("file.pdf")
+}
+
+fun visitor() {
+    val visitor = Visitor()
+    val things = listOf<Thing>(ThisThing(), CompletelyDifferentThing())
+
+    things.forEach {
+        it.accept(visitor)
+    }
+}
+
+fun interpreter() {
+    val helloWorld = ">++++++++[<+++++++++>-]<.>++++[<+++++++>-]<+.+++++++..+++.>>++++++[<+++++++>-]<+" +
+            "+.------------.>++++++[<+++++++++>-]<+.<.+++.------.--------.>>>++++[<++++++++>-" +
+            "]<+."
+    BrainfuckInterpreter(helloWorld).run()
+    println()
+}

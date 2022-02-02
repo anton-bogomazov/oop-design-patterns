@@ -20,4 +20,10 @@ fun main() {
     printWrapperAndRun(::iterator)
     printWrapperAndRun(::mediator)
     printWrapperAndRun(::memento)
+    printWrapperAndRun(::observer)
+    printWrapperAndRun(::state)
+    printWrapperAndRun(::strategy)
+    printWrapperAndRun(::templateMethod)
+    printWrapperAndRun(::visitor)
+    printWrapperAndRun(::interpreter)
 }
