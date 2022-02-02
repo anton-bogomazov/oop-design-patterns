@@ -18,4 +18,6 @@ fun main() {
     printWrapperAndRun(::chainOfResponsibility)
     printWrapperAndRun(::command)
     printWrapperAndRun(::iterator)
+    printWrapperAndRun(::mediator)
+    printWrapperAndRun(::memento)
 }

@@ -131,3 +131,23 @@ fun iterator() {
     }
     println()
 }
+
+fun mediator() {
+    val firstConsumer = BaseConsumer()
+    val secondConsumer = BaseConsumer()
+    val mediator = BaseMediator(listOf(firstConsumer to 0L, secondConsumer to 0L))
+    val producer = BaseProducer(mediator)
+
+    producer.send("hello, first!", firstConsumer)
+    producer.send("hello, second!", secondConsumer)
+}
+
+fun memento() {
+    val editor = Editor()
+
+    editor.printText()
+    editor.appendText("Hello!")
+    editor.printText()
+    editor.undo()
+    editor.printText()
+}
